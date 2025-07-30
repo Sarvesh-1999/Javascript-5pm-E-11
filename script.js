@@ -307,19 +307,95 @@
 
 //! ---------EXAMPLE 4
 
-console.log("Start");
-console.log(fun());
-var a;
-console.log(test);
-function fun() {
-  let x = 10;
-  let y = 20;
-  let sum = x + y;
-  return sum;
+// console.log("Start");
+// console.log(fun());
+// var a;
+// console.log(test);
+// function fun() {
+//   let x = 10;
+//   let y = 20;
+//   let sum = x + y;
+//   return sum;
+// }
+// var test = function(){
+//   console.log("I am test");
+// }
+// console.log(fun());
+// console.log(test());
+// console.log("End");
+
+//! --------- Example 5
+// debugger;
+// function subject(sub1, sub2, sub3) {
+//   console.log(sub1, sub2, sub3);
+// }
+
+// subject("HTML", "CSS", "JS");
+
+//! 7) NESTED FUNCTION
+// debugger;
+// function parent() {
+//   let money = 50000;
+//   console.log(money);
+
+//   function child() {
+//     let savings = 2000;
+//     console.log(savings);
+//   }
+//   child();
+// }
+// parent();
+
+// debugger;
+// function parent() {
+//   let money = 50000;
+//   let str = "Hello";
+//   console.log(money, str);
+
+//   function child() {
+//     let savings = 2000;
+//     console.log(savings + money);
+//   }
+//   child();
+// }
+// parent();
+
+//! CLOSURE: it's  temporary memory which is created whenever we access parent's function properties inside child func and gets destroyed when child's execution is completed
+
+//! LEXICAL SCOPING: ability of js engine to search a variable outside of it's current scope
+
+// function parent() {
+//   let money = 50000;
+//   console.log(money);
+
+//   function child() {
+//     let savings = 2000;
+//     console.log(savings + money);
+//   }
+
+//   return child;
+//   iuytredsdfghjk
+// }
+// let returnVal = parent();
+// console.log(returnVal);
+// returnVal();
+
+//!----------------Example
+
+function parent() {
+  let a1 = 20;
+  console.log(a1);
+
+  function child1() {
+    let a2 = 30;
+    console.log(a2);
+
+    function child2() {
+      let a3 = 40;
+      console.log(a1 + a2 + a3);
+    }
+    child2();
+  }
+  child1();
 }
-var test = function(){
-  console.log("I am test");
-}
-console.log(fun());
-console.log(test());
-console.log("End");
+parent()
