@@ -381,21 +381,107 @@
 // returnVal();
 
 //!----------------Example
+// function parent() {
+//   let a1 = 20;
+//   console.log(a1);
 
+//   function child1() {
+//     let a2 = 30;
+//     console.log(a2);
+
+//     function child2() {
+//       let a3 = 40;
+//       console.log(a1 + a2 + a3);
+//     }
+//     child2();
+//   }
+//   child1();
+// }
+// parent()
+
+//! 8) Higher Order Function  && Callback Function
+// HOF : function which accepts another function as an arguement
+
+// CALLBACK : funtion which passes as an arguement to another function
+
+// map(), forEach()
+
+// function demo(x) {}
+
+// demo(function abc() {});
+
+//! example
+// debugger
+// function sum(x, y) {
+//   return x + y;
+// }
+
+// function calculate(n1, n2, callback) {
+//   let val = callback(n1, n2);
+//   console.log(val);
+// }
+
+// calculate(10, 20, sum);
+
+//! 9) IMMEDIATLY INVOKED FUNCTION EXPRESSION (IIFE)
+
+// (function () {
+//   console.log("IIFE 1");
+// })();
+
+// (function () {
+//   console.log("IIFE 2");
+// })();
+
+// debugger;
 function parent() {
-  let a1 = 20;
-  console.log(a1);
+  console.log("Hii");
 
-  function child1() {
-    let a2 = 30;
-    console.log(a2);
-
-    function child2() {
-      let a3 = 40;
-      console.log(a1 + a2 + a3);
-    }
-    child2();
+  function xyz() {
+    console.log("xyz func");
   }
-  child1();
+
+  function child() {
+    console.log("Byee");
+    return xyz;
+  }
+
+  return child;
 }
-parent()
+parent()()(); // js currying
+
+//! 10) ARROW FUNCTION
+
+// SYNTAX --->   let a1 = () => {}
+
+// // 1 WAY
+// let a1 = () => {
+//   console.log("Arrow func 1");
+// }
+// a1()
+
+// // 2 WAY
+// let a2 = _ => {
+//   console.log("Arrow func 2");
+// }
+// a2()
+
+// // 3 WAY
+// let a3 = () => console.log("Arrow func 3");
+
+// // 4 WAY
+// let a4 = n1 => console.log(n1)
+// a4("Arrow func 4")
+
+// // 5 WAY
+// let a5 = (n1,n2) => console.log(n1,n2)
+// a5(10,20)
+
+// // EXPLICIT RETURN ---> {} and "return" keyword is manadatory
+// let a6 = () => {return "Arrow func 6"}
+// console.log(a6());
+
+// // IMPLICIT RETURN
+// let a7 = () => "Arrow Func 7"
+// console.log(a7());
+
