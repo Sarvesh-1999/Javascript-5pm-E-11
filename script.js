@@ -434,21 +434,21 @@
 // })();
 
 // debugger;
-function parent() {
-  console.log("Hii");
+// function parent() {
+//   console.log("Hii");
 
-  function xyz() {
-    console.log("xyz func");
-  }
+//   function xyz() {
+//     console.log("xyz func");
+//   }
 
-  function child() {
-    console.log("Byee");
-    return xyz;
-  }
+//   function child() {
+//     console.log("Byee");
+//     return xyz;
+//   }
 
-  return child;
-}
-parent()()(); // js currying
+//   return child;
+// }
+// parent()()(); // js currying
 
 //! 10) ARROW FUNCTION
 
@@ -485,3 +485,72 @@ parent()()(); // js currying
 // let a7 = () => "Arrow Func 7"
 // console.log(a7());
 
+//! ARRAYS
+
+//! 1) ARRAY LITERALS <- short hand syntax
+// let arr1 = [10,20,30,40]
+
+//! 2) ARRAY CONSTRUCTOR
+// let arr2 = new Array(10,20,30,40)
+
+// console.log(arr1);// [10,20,30,40]
+// console.log(arr2);// [10,20,30,40]
+
+// let arr1 = [10,20,30,40,50]
+// //           0  1  2  3  4
+
+// console.log(arr1[4]);//50
+
+//! ARRAY METHODS (INBULIT)
+
+let arr1 = [10, 20, 30, 40];
+console.log(arr1);
+
+//! pop() = removes last element and returns it
+let returnVal1 = arr1.pop();
+
+console.log(returnVal1); // 40 <-- popped element
+console.log(arr1); // [10,20,30]
+
+//! push() = adds new element at the end and returns new length
+let returnVal2 = arr1.push(100, 200, 300);
+
+console.log(returnVal2); // 6 <-- new length
+console.log(arr1); // [10,20,30,100,200,300]
+
+//! shift() = removes element from 0th index and returns it
+let returnVal3 = arr1.shift();
+
+console.log(returnVal3); // 10 <-- 0th index element removed
+console.log(arr1); //[20,30,100,200,300]
+
+//! unshift() = adds new element at the front of an array and returns new length
+let returnVal4 = arr1.unshift("Hii", "Byee");
+
+console.log(returnVal4); // 7 <-- new length
+console.log(arr1); // ["Hii","Byee",20,30,100,200,300]
+
+//! splice(startIndex, deleteCount, newElements)
+
+let arr2 = [100, 200, 300, 400, 500];
+//           0   1   2   3   4
+console.log(arr2);
+console.log(arr2.splice(1, 3)); //[200,300,400]
+console.log(arr2);
+
+let arr3 = [10, 20, 30, 40];
+arr3.splice(2, 0, "Hii");
+console.log(arr3); // [10,20,"Hii",30,40]
+
+let arr4 = [100, 200, 300, 10, 20, 30];
+arr4.splice(1, 4, ["Javascript"]);
+console.log(arr4); // [100 , ["Javascript"] , 30]
+
+let arr5 = [10, 20];
+arr5.splice(1, 5, "Hey");
+console.log(arr5);
+
+let arr6 = [10, 20, 30, 40, 50, 60];
+let slicedArr = arr6.slice(2);
+console.log(slicedArr); // [30,40,50,60]
+console.log(arr6); // [10,20,30,40,50,60]
