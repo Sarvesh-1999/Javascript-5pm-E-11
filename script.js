@@ -503,54 +503,134 @@
 
 //! ARRAY METHODS (INBULIT)
 
-let arr1 = [10, 20, 30, 40];
-console.log(arr1);
+// let arr1 = [10, 20, 30, 40];
+// console.log(arr1);
 
-//! pop() = removes last element and returns it
-let returnVal1 = arr1.pop();
+// //! pop() = removes last element and returns it
+// let returnVal1 = arr1.pop();
 
-console.log(returnVal1); // 40 <-- popped element
-console.log(arr1); // [10,20,30]
+// console.log(returnVal1); // 40 <-- popped element
+// console.log(arr1); // [10,20,30]
 
-//! push() = adds new element at the end and returns new length
-let returnVal2 = arr1.push(100, 200, 300);
+// //! push() = adds new element at the end and returns new length
+// let returnVal2 = arr1.push(100, 200, 300);
 
-console.log(returnVal2); // 6 <-- new length
-console.log(arr1); // [10,20,30,100,200,300]
+// console.log(returnVal2); // 6 <-- new length
+// console.log(arr1); // [10,20,30,100,200,300]
 
-//! shift() = removes element from 0th index and returns it
-let returnVal3 = arr1.shift();
+// //! shift() = removes element from 0th index and returns it
+// let returnVal3 = arr1.shift();
 
-console.log(returnVal3); // 10 <-- 0th index element removed
-console.log(arr1); //[20,30,100,200,300]
+// console.log(returnVal3); // 10 <-- 0th index element removed
+// console.log(arr1); //[20,30,100,200,300]
 
-//! unshift() = adds new element at the front of an array and returns new length
-let returnVal4 = arr1.unshift("Hii", "Byee");
+// //! unshift() = adds new element at the front of an array and returns new length
+// let returnVal4 = arr1.unshift("Hii", "Byee");
 
-console.log(returnVal4); // 7 <-- new length
-console.log(arr1); // ["Hii","Byee",20,30,100,200,300]
+// console.log(returnVal4); // 7 <-- new length
+// console.log(arr1); // ["Hii","Byee",20,30,100,200,300]
 
-//! splice(startIndex, deleteCount, newElements)
+// //! splice(startIndex, deleteCount, newElements)
 
-let arr2 = [100, 200, 300, 400, 500];
-//           0   1   2   3   4
-console.log(arr2);
-console.log(arr2.splice(1, 3)); //[200,300,400]
-console.log(arr2);
+// let arr2 = [100, 200, 300, 400, 500];
+// //           0   1   2   3   4
+// console.log(arr2);
+// console.log(arr2.splice(1, 3)); //[200,300,400]
+// console.log(arr2);
 
-let arr3 = [10, 20, 30, 40];
-arr3.splice(2, 0, "Hii");
-console.log(arr3); // [10,20,"Hii",30,40]
+// let arr3 = [10, 20, 30, 40];
+// arr3.splice(2, 0, "Hii");
+// console.log(arr3); // [10,20,"Hii",30,40]
 
-let arr4 = [100, 200, 300, 10, 20, 30];
-arr4.splice(1, 4, ["Javascript"]);
-console.log(arr4); // [100 , ["Javascript"] , 30]
+// let arr4 = [100, 200, 300, 10, 20, 30];
+// arr4.splice(1, 4, ["Javascript"]);
+// console.log(arr4); // [100 , ["Javascript"] , 30]
 
-let arr5 = [10, 20];
-arr5.splice(1, 5, "Hey");
-console.log(arr5);
+// let arr5 = [10, 20];
+// arr5.splice(1, 5, "Hey");
+// console.log(arr5);
 
-let arr6 = [10, 20, 30, 40, 50, 60];
-let slicedArr = arr6.slice(2);
-console.log(slicedArr); // [30,40,50,60]
-console.log(arr6); // [10,20,30,40,50,60]
+// let arr6 = [10, 20, 30, 40, 50, 60];
+// let slicedArr = arr6.slice(2);
+// console.log(slicedArr); // [30,40,50,60]
+// console.log(arr6); // [10,20,30,40,50,60]
+
+//! indexOf()
+let arr7 = [10, 20, 30, 40, 50];
+console.log(arr7.indexOf(50)); // 4
+console.log(arr7.indexOf(100)); // -1
+
+//! includes()
+console.log(arr7.includes(40)); // true
+console.log(arr7.includes(400)); // false
+
+//! concat()
+let arr8 = [100, 200, 300];
+let arr9 = [1000, 2000, 3000];
+console.log(arr8.concat(arr9, arr8)); // [100,200,300,1000,2000,3000,100,200,300]
+
+//! loops
+
+// let arr10 = [105,205,305,405]
+
+// for(initialization ; condition ; incrementation){}
+
+// for(let i = 0 ; i < arr10.length ; i++){
+//     console.log(arr10[i]);
+// }
+
+//! ----> ADVANCED ARRAY METHODS
+
+let arr11 = [10, 20, 30, 40, 50];
+
+//! forEach()
+let val1 = arr11.forEach((ele, idx, array) => {
+  console.log(ele, idx, array, "forEach");
+  return ele + 5;
+});
+console.log("Return Value of forEach ", val1);
+
+//! map() -> returns a new array
+let val2 = arr11.map((ele, idx, array) => {
+  console.log(ele, idx, array, "map");
+  return ele + 5;
+});
+console.log("Return Value of map ", val2);
+
+//! filter()
+let val3 = arr11.filter((ele) => {
+  return ele > 20;
+});
+console.log("Filtered elements ", val3); // [30,40,50]
+
+//! find()
+let val4 = arr11.find((ele) => {
+  console.log(ele);
+  return ele > 20;
+});
+console.log("Element Found ", val4); // 30
+
+//! findIndex()
+let val5 = arr11.findIndex((ele) => {
+  console.log(ele);
+  return ele > 20;
+});
+console.log("Element's Index ", val5); // 2
+
+//! reduce()
+
+let sum = 0;
+for (let i = 0; i < arr11.length; i++) {
+  sum += arr11[i];
+}
+console.log("Sum is ", sum);
+
+let val6 = arr11.reduce((accVal, ele, idx, array) => {
+  console.log(accVal, ele);
+  return accVal + ele;
+}, 0);
+console.log("Sum is using reduce ", val6);
+
+let arr12 = [10, 20, 30];
+let val7 = arr12.reduce((acc, ele) => acc + ele, 0);
+console.log(val7);
