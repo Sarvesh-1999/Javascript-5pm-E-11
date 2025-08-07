@@ -556,18 +556,18 @@
 // console.log(arr6); // [10,20,30,40,50,60]
 
 //! indexOf()
-let arr7 = [10, 20, 30, 40, 50];
-console.log(arr7.indexOf(50)); // 4
-console.log(arr7.indexOf(100)); // -1
+// let arr7 = [10, 20, 30, 40, 50];
+// console.log(arr7.indexOf(50)); // 4
+// console.log(arr7.indexOf(100)); // -1
 
-//! includes()
-console.log(arr7.includes(40)); // true
-console.log(arr7.includes(400)); // false
+// //! includes()
+// console.log(arr7.includes(40)); // true
+// console.log(arr7.includes(400)); // false
 
-//! concat()
-let arr8 = [100, 200, 300];
-let arr9 = [1000, 2000, 3000];
-console.log(arr8.concat(arr9, arr8)); // [100,200,300,1000,2000,3000,100,200,300]
+// //! concat()
+// let arr8 = [100, 200, 300];
+// let arr9 = [1000, 2000, 3000];
+// console.log(arr8.concat(arr9, arr8)); // [100,200,300,1000,2000,3000,100,200,300]
 
 //! loops
 
@@ -581,56 +581,143 @@ console.log(arr8.concat(arr9, arr8)); // [100,200,300,1000,2000,3000,100,200,300
 
 //! ----> ADVANCED ARRAY METHODS
 
-let arr11 = [10, 20, 30, 40, 50];
+// let arr11 = [10, 20, 30, 40, 50];
 
-//! forEach()
-let val1 = arr11.forEach((ele, idx, array) => {
-  console.log(ele, idx, array, "forEach");
-  return ele + 5;
-});
-console.log("Return Value of forEach ", val1);
+// //! forEach()
+// let val1 = arr11.forEach((ele, idx, array) => {
+//   console.log(ele, idx, array, "forEach");
+//   return ele + 5;
+// });
+// console.log("Return Value of forEach ", val1);
 
-//! map() -> returns a new array
-let val2 = arr11.map((ele, idx, array) => {
-  console.log(ele, idx, array, "map");
-  return ele + 5;
-});
-console.log("Return Value of map ", val2);
+// //! map() -> returns a new array
+// let val2 = arr11.map((ele, idx, array) => {
+//   console.log(ele, idx, array, "map");
+//   return ele + 5;
+// });
+// console.log("Return Value of map ", val2);
 
-//! filter()
-let val3 = arr11.filter((ele) => {
-  return ele > 20;
-});
-console.log("Filtered elements ", val3); // [30,40,50]
+// //! filter()
+// let val3 = arr11.filter((ele) => {
+//   return ele > 20;
+// });
+// console.log("Filtered elements ", val3); // [30,40,50]
 
-//! find()
-let val4 = arr11.find((ele) => {
-  console.log(ele);
-  return ele > 20;
-});
-console.log("Element Found ", val4); // 30
+// //! find()
+// let val4 = arr11.find((ele) => {
+//   console.log(ele);
+//   return ele > 20;
+// });
+// console.log("Element Found ", val4); // 30
 
-//! findIndex()
-let val5 = arr11.findIndex((ele) => {
-  console.log(ele);
-  return ele > 20;
-});
-console.log("Element's Index ", val5); // 2
+// //! findIndex()
+// let val5 = arr11.findIndex((ele) => {
+//   console.log(ele);
+//   return ele > 20;
+// });
+// console.log("Element's Index ", val5); // 2
 
 //! reduce()
 
-let sum = 0;
-for (let i = 0; i < arr11.length; i++) {
-  sum += arr11[i];
+// let sum = 0;
+// for (let i = 0; i < arr11.length; i++) {
+//   sum += arr11[i];
+// }
+// console.log("Sum is ", sum);
+
+// let val6 = arr11.reduce((accVal, ele, idx, array) => {
+//   console.log(accVal, ele);
+//   return accVal + ele;
+// }, 0);
+// console.log("Sum is using reduce ", val6);
+
+// let arr12 = [10, 20, 30];
+// let val7 = arr12.reduce((acc, ele) => acc + ele, 0);
+// console.log(val7);
+
+//! OBJECTS
+//! object literals
+// let user = {
+//   id: 1,
+//   firstname: "John",
+// };
+// console.log(user); // {id: 1, firstname: "John"}
+
+//! object constructor
+// let obj2 = new Object({ id: 2, firstname: "Clark" });
+
+// console.log(obj2); // { id: 2, firstname: "Clark" }
+
+//! CRUD WITH OBJECTS
+
+//------> create
+let employee = {
+  id: 1,
+  ename: "John Doe",
+};
+console.log(employee);
+
+//--------> read
+console.log(employee.ename); // dot operator
+console.log(employee["ename"]); // square brackets
+
+["id", "ename", "sal"].forEach((ele) => {
+  console.log(employee[ele]);
+});
+
+//-----> adding new property
+employee.company = "J-Spiders";
+employee.salary = 50000;
+employee.demo = "demo data";
+
+//-----> update exsisting property
+employee.salary = 80000;
+
+//! NOTE : if property doesn't exsist then new property will be added and if it exists that key will get updated
+
+//------> delete property
+delete employee.demo;
+
+console.log(employee);
+
+//! HOW TO ITERATE AN ARRAY USING FOR-IN AND FOR-OF
+
+let arr13 = [10, 20, 30];
+// for in
+for (let i in arr13) {
+  console.log(i); //---> prints indexs
 }
-console.log("Sum is ", sum);
 
-let val6 = arr11.reduce((accVal, ele, idx, array) => {
-  console.log(accVal, ele);
-  return accVal + ele;
-}, 0);
-console.log("Sum is using reduce ", val6);
+// for of
+for (let i of arr13) {
+  console.log(i); // ---> prints elements
+}
 
-let arr12 = [10, 20, 30];
-let val7 = arr12.reduce((acc, ele) => acc + ele, 0);
-console.log(val7);
+//! HOW TO ITERATE AN OBJECT (ONLY ONE WAY USING FOR-IN LOOP)
+let obj = {
+  id: 2,
+  firstname: "John",
+  lastname: "Doe",
+  company: "HCL",
+  salary: 65000,
+  designation: "Dev",
+};
+for (let i in obj) {
+  console.log(i, " --> ", obj[i]);
+}
+
+//! HOW TO CREATE YOUR OWN METHODS
+//! NOTE -> don't use arrow function for creating methods bcoz, in arrow function "this" keyword points to window object(global). 
+// Always use traditional function for creating methods bcoz, in that "this" keyword points to current object
+
+let student = {
+  id: 123,
+  firstname: "Raj",
+  lastname: "Sharma",
+  getEmail: function () {
+    console.log(this.firstname + "." + this.lastname + "@gmail.com");
+  },
+  getFullname() {},
+};
+
+student.getEmail();
