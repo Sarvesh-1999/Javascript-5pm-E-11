@@ -727,17 +727,17 @@
 // console.log(this); // global object
 
 //! "this" keyword always points to window object, if we create a method using arrow func "this" will point window object but if we use traditional func "this" will point current object
-const Employee1 = {
-  id: 1,
-  firstName: "Alex",
-  lastName: "Doe",
-  getFullname: function () {
-    console.log(this); // Employee1 {} <--- current object
-  },
-  demo: () => {
-    console.log(this); // Window {} //! DON'T ARROW FUNC USE TO CREATE METHODS
-  },
-};
+// const Employee1 = {
+//   id: 1,
+//   firstName: "Alex",
+//   lastName: "Doe",
+//   getFullname: function () {
+//     console.log(this); // Employee1 {} <--- current object
+//   },
+//   demo: () => {
+//     console.log(this); // Window {} //! DON'T ARROW FUNC USE TO CREATE METHODS
+//   },
+// };
 // Employee1.getFullname();
 
 //! EXAMPLE 1 : storing function inside object
@@ -763,25 +763,25 @@ const Employee1 = {
 // Student2.getFullname()
 
 //! EXAMPLE 2 :
-function getFullname(){
-  console.log(this);
-}
+// function getFullname() {
+//   console.log(this);
+// }
 
-function getCourseDetails(degree , branch, yop){
-  console.log(this.firstName, this.lastName, degree, branch, yop);
-}
+// function getCourseDetails(degree, branch, yop) {
+//   console.log(this.firstName, this.lastName, degree, branch, yop);
+// }
 
-const Student1 = {
-  id: 2,
-  firstName: "John",
-  lastName: "Kent",
-};
+// const Student1 = {
+//   id: 2,
+//   firstName: "John",
+//   lastName: "Kent",
+// };
 
-const Student2 = {
-  id: 3,
-  firstName: "Raj",
-  lastName: "Singh",
-};
+// const Student2 = {
+//   id: 3,
+//   firstName: "Raj",
+//   lastName: "Singh",
+// };
 
 //! call(), apply() and bind()
 
@@ -795,11 +795,102 @@ const Student2 = {
 // getCourseDetails.apply(Student2 , ["Btech", "CSE", 2025])
 
 //! bind() : returns a new bounded Func, you can call later
-const boundedGetFullName = getFullname.bind(Student1)
+// const boundedGetFullName = getFullname.bind(Student1)
 
-console.log("Hello");
-var a = 10
-console.log(a);
-boundedGetFullName()
+// console.log("Hello");
+// var a = 10
+// console.log(a);
+// boundedGetFullName()
 
+//! METHODS REVISION
+//--- NOTE : "this" keyword always points to window object
 
+// console.log(window); // window (GLOBAL OBJECT)
+// console.log(this); // window object
+
+// let arr = [this];
+// console.log(arr[0]); // window object
+
+// function demo() {
+//   console.log(this); // window object
+// }
+// demo();
+
+// let obj1 = {
+//   x: this,
+// };
+// console.log(obj1.x); // window object
+
+// function getFullname() {
+//   console.log(this.first_name, this.last_name);
+// }
+
+// function getCourseDetails(sub1, sub2, sub3) {
+//   console.log(
+//     this.first_name + " " + this.last_name + " " + "has opted for ",
+//     sub1,
+//     sub2,
+//     sub3
+//   );
+// }
+
+// function getEmail() {
+//   console.log(this.first_name + "." + this.last_name + "@gmail.com");
+// }
+
+// let Student = {
+//   id: 1,
+//   first_name: "John",
+//   last_name: "Doe",
+// };
+
+// let Employee = {
+//   id: 1,
+//   first_name: "Alex",
+//   last_name: "Costa",
+// };
+
+// //! call() ,apply() and bind()
+
+// //! ----> call()
+// getFullname.call(Student);
+// getCourseDetails.call(Student, "HTML", "CSS", "JS");
+
+// //! ---> apply()
+// getFullname.apply(Employee);
+// getCourseDetails.apply(Employee, ["NODE", "EXPRESS", "MONGO"]);
+
+// //! ---> bind()
+// let boundedFunc = getEmail.bind(Student, []);
+// let a = 10;
+// console.log(a);
+// console.log("Hii");
+// boundedFunc();
+
+//! constructor function
+
+// let obj1 = new Object()
+
+function Student(id, fname, lname) {
+  this.id = id;
+  this.firstName = fname;
+  this.lastName = lname;
+}
+
+let s1 = new Student(1, "Raj", "Singh");
+console.log(s1);
+
+//! OBJECT METHODS
+// Object.keys()
+console.log(Object.keys(s1));// ["id","firstName","lastName"]
+
+// Object.values()
+console.log(Object.values(s1));//  [1, 'Raj', 'Singh']
+
+// Object.entries()
+let val = Object.entries(s1);
+console.log(val); // [ ["id",1] , ["firstName","Raj"] , ["lastName","Singh"] ]
+
+// Object.fromEntries()
+let convertedObj = Object.fromEntries(val)
+console.log(convertedObj);// {id: 1, firstName: 'Raj', lastName: 'Singh'}
