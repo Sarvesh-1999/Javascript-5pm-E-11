@@ -1204,29 +1204,89 @@
 // let password = sessionStorage.getItem("password")
 // console.log(password);
 
-function storeUserData(fname, lname) {
-  let user = {
-    fname,
-    lname,
-  };
-  setTimeout(() => {
-    localStorage.setItem("userdata", JSON.stringify(user));// JSON.stringify() converts JS to JSON
-    console.log("Data stored");
-  }, 5000);
+// function storeUserData(fname, lname) {
+//   let user = {
+//     fname,
+//     lname,
+//   };
+//   setTimeout(() => {
+//     localStorage.setItem("userdata", JSON.stringify(user));// JSON.stringify() converts JS to JSON
+//     console.log("Data stored");
+//   }, 5000);
+// }
+
+// console.log("Function called");
+// storeUserData("John", "Doe");
+
+// setTimeout(()=>{
+//   let data = localStorage.getItem("userdata")
+//   let parsedData = JSON.parse(data) // JSON.parse() converts JSON to JS
+//   console.log(parsedData);
+//   document.writeln(`<h1>${parsedData.fname} ${parsedData.lname}</h1>`)
+// }, 10000)
+
+//! API CALL USING FETCH METHOD
+
+// let p1 = fetch("https://jsonplaceholder.typicode.com/todos");
+// console.log(p1);
+
+// p1.then((res) => {
+//   let p2 = res.json();
+
+//   p2.then((todos) => {
+//     console.log(todos);
+//   });
+
+//   p2.catch((err) => {
+//     console.log(err);
+//   });
+// });
+
+// p1.catch((err) => {
+//   console.log(err);
+//   console.log("API CALL FAILED");
+// });
+
+// //! USING METHOD CHAINING APPROACH
+// fetch("https://jsonplaceholder.typicode.com/posts").then((res)=>{
+
+//   res.json().then((posts)=>{
+//     console.log(posts);
+
+//   }).catch((err)=>{
+//     console.log(err);
+//   })
+
+// }).catch((err)=>{
+//   console.log(err);
+// })
+
+//! async await
+
+async function getUsers() {
+  try {
+    let res = await fetch("https://jsonplaceholder.typicode.com/users");
+    let users = await res.json();
+    console.log(users);//[{},{},.....]
+    displayUsers(users);//[{},{},.....]
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-console.log("Function called");
-storeUserData("John", "Doe");
 
-setTimeout(()=>{
-  let data = localStorage.getItem("userdata")
-  let parsedData = JSON.parse(data) // JSON.parse() converts JSON to JS
-  console.log(parsedData);
-  document.writeln(`<h1>${parsedData.fname} ${parsedData.lname}</h1>`)
-}, 10000)
+function displayUsers(allUsers) {
+  console.log(allUsers);//[{},{},.....]
 
+  allUsers.map((ele)=>{
+    console.log(ele);
+    document.writeln(`
+       <div style='background-color:gainsboro; padding:10px;margin:10px'>
+        <h3> Name : ${ele.name} </h3>
+        <h3> Email : ${ele.email}</h3>
+        <h3> PhoneNo : ${ele.phone}</h3>
+       </div>
+      `)
+  })
 
-
-
-
-
+}
