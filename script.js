@@ -1263,30 +1263,97 @@
 
 //! async await
 
-async function getUsers() {
-  try {
-    let res = await fetch("https://jsonplaceholder.typicode.com/users");
-    let users = await res.json();
-    console.log(users);//[{},{},.....]
-    displayUsers(users);//[{},{},.....]
-  } catch (error) {
-    console.log(error);
-  }
+// async function getUsers() {
+//   try {
+//     let res = await fetch("https://jsonplaceholder.typicode.com/users");
+//     let users = await res.json();
+//     console.log(users);//[{},{},.....]
+//     displayUsers(users);//[{},{},.....]
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+// function displayUsers(allUsers) {
+//   console.log(allUsers);//[{},{},.....]
+
+//   allUsers.map((ele)=>{
+//     console.log(ele);
+//     document.writeln(`
+//        <div style='background-color:gainsboro; padding:10px;margin:10px'>
+//         <h3> Name : ${ele.name} </h3>
+//         <h3> Email : ${ele.email}</h3>
+//         <h3> PhoneNo : ${ele.phone}</h3>
+//        </div>
+//       `)
+//   })
+// }
+
+//! DESTRUCTURING
+let arr1 = [10, 20, 30, 40, 50];
+let [a, b, c, d, e] = arr1;
+console.log(a, b, d);
+
+// skipping elements
+let arr2 = [100, 200, 300, 400];
+let [, a1, , a2] = arr2;
+console.log(a1, a2);
+
+let arr3 = [1000, 2000, [10, 30, 20], 7000];
+let [m, n, [, y, z], p] = arr3;
+console.log(y);
+
+function useState(initialState) {
+  return [initialState, () => {}];
 }
+let [state, setState] = useState();
+
+let obj1 = {
+  id: 1,
+  firstName: "John",
+  lastName: "Doe",
+  sal: 75000,
+};
+let { firstName, sal: salary } = obj1;
+
+console.log(firstName, salary);
+
+let users = [
+  { id: 1, fname: "Raj", company: "HCL", sal: 80000 },
+  { id: 1, fname: "Raj" },
+];
+
+// company = "NA" <---- default value
+users.map((ele) => {
+  let { id, fname, company = "NA", sal: salary = 0 } = ele;
+  console.log(fname, company, salary);
+});
+
+const employee = {
+  id: 1,
+  name: "Leanne Graham",
+  username: "Bret",
+  email: "Sincere@april.biz",
+  address: {
+    street: "Kulas Light",
+    suite: "Apt. 556",
+    city: "Gwenborough",
+    zipcode: "92998-3874",
+    geo: {
+      lat: "-37.3159",
+      lng: "81.1496",
+    },
+  },
+  phone: "1-770-736-8031 x56442",
+  website: "hildegard.org",
+  company: {
+    name: "Romaguera-Crona",
+    catchPhrase: "Multi-layered client-server neural-net",
+    bs: "harness real-time e-markets",
+  },
+};
+
+let {username , address:{street , geo:{lat}} , company:{name , bs} } = employee
+console.log(street ,lat , name , bs);
 
 
-function displayUsers(allUsers) {
-  console.log(allUsers);//[{},{},.....]
-
-  allUsers.map((ele)=>{
-    console.log(ele);
-    document.writeln(`
-       <div style='background-color:gainsboro; padding:10px;margin:10px'>
-        <h3> Name : ${ele.name} </h3>
-        <h3> Email : ${ele.email}</h3>
-        <h3> PhoneNo : ${ele.phone}</h3>
-       </div>
-      `)
-  })
-
-}
