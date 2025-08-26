@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
+  <body onload="pageLoad()">
     <!-- <h1>Welcome to DOM</h1>
 
     <div id="box1">target me using id</div>
@@ -21,9 +21,50 @@
     <article>target me using tagname</article>
     <article>target me using tagname</article> -->
 
+    <!-- <main>I am main</main>
     <main>I am main</main>
-    <main>I am main</main>
-    <main>I am main</main>
+    <main>I am main</main> -->
+
+
+    <!-- ! EVENTS EXAMPLE -->
+    <button onclick="singleClick()">
+      single click
+    </button>
+
+    <button ondblclick="doubleClick()">
+      double click
+    </button>
+
+    <button onmouseenter="enter()">
+      mouse enter
+    </button>
+
+    <button onmouseleave="out()">
+      mouse leave
+    </button>
+
+    <button onmousemove="move()">
+      mouse move
+    </button>
+
+    <input type="text" onkeydown="down()">
+
+    <input type="text" onkeyup="up()">
+
+    <br><br>
+
+    <h2>Form</h2>
+    <form onsubmit="formhandle(event)">
+      <input type="text" name="" id="email">
+      <br>
+      <br>
+      <input type="text" name="" id="password">
+      <br>
+      <br>
+      <button type="submit">submit</button>
+    </form>
+
+
 
 
 

@@ -1,10 +1,9 @@
-//! DOM SELECTORS - 5 TYPES 
+//! DOM SELECTORS - 5 TYPES
 // document.getElementById()
 // document.getElementsByClassName()
 // document.getElementsByTagName()
 // document.querySelector()
 // document.querySelectorAll()
-
 
 // let box1 = document.getElementById("box1")
 // console.log(box1);
@@ -34,15 +33,13 @@
 // let elements3 = document.querySelectorAll("article")
 // console.log(elements3);
 
-
-
 // //! DOM MANIPULATION
-// //! how to create HTML Elements --> 
+// //! how to create HTML Elements -->
 // // document.createElement()
 // let h1Tag = document.createElement("h1")
 // let h2Tag = document.createElement("h2")
 
-// //! how to add text content --> 
+// //! how to add text content -->
 // // 1) innerText
 // // 2) innerHTML
 // h1Tag.innerText = "Hello <strong>Javascript</strong>"
@@ -75,22 +72,100 @@
 // console.log("collection ",collection.length); // 7 (Live Collection)
 // console.log("lists ",lists.length); // 3 (Static Collection)
 
-//! HOW TO ADD ATTRIBUTES USING JAVASCRIPT
+// //! HOW TO ADD ATTRIBUTES USING JAVASCRIPT
+// const sectionTag = document.createElement("section")
+// sectionTag.innerText = "I am Section"
 
-const sectionTag = document.createElement("section")
-sectionTag.innerText = "I am Section"
+// //! to add attribute -->
+// // 1) using property
+// sectionTag.id = "card"
 
-//! to add attribute -->
-// 1) using property
-sectionTag.id = "card"
+// // 2) using method --> setAttribute("attributeName" , "attributeValue")
+// sectionTag.setAttribute("class" , "box")
 
-// 2) using method --> setAttribute("attributeName" , "attributeValue")
-sectionTag.setAttribute("class" , "box")
+// console.log(sectionTag);
 
-console.log(sectionTag);
+// //! creating table
+// const tableData = [
+//     {no : 1 , FullName : "Bill Gates" ,Position : "Founder Microsoft", Salary : "$1000"}
+// ]
 
+// const table = document.createElement("table")
 
+// let tr1 = document.createElement("tr")
 
+// let th1 = document.createElement("th")
+// let th2 = document.createElement("th")
+// let th3 = document.createElement("th")
+// let th4 = document.createElement("th")
 
+// th1.innerText = "No."
+// th2.innerText = "Full Name"
+// th3.innerText = "Position"
+// th4.innerText = "Salary"
 
+// tr1.append(th1, th2, th3, th4)
 
+// table.append(tr1)
+// document.body.append(table)
+
+//! Events : actions performed by the user
+// onclick
+function singleClick() {
+  console.log("single click");
+}
+
+// ondblclick
+function doubleClick() {
+  console.log("double click");
+}
+
+// onmouseenter
+function enter() {
+  console.log("mouse entered");
+}
+
+// onmouseleave
+function out() {
+  console.log("mouse left");
+}
+
+// onmousemove
+function move() {
+  console.log("mouse moved");
+}
+
+// onkeydown
+function down() {
+  console.log("Key is pressed");
+}
+
+// onkeyup
+function up() {
+  console.log("Key is released");
+}
+
+// onload
+function pageLoad() {
+  console.log("Page is loaded");
+}
+
+// onsubmit <--- form tag event
+function formhandle(e) {
+  e.preventDefault(); // stops page refresh
+  console.log("Form Submitted");
+
+  let userData = {
+    email: e.target[0].value, // document.querySelector("#email").value
+    password: e.target[1].value, // document.querySelector("#password").value
+  };
+
+  console.log(userData);
+
+  // clear inputs
+  e.target[0].value = ""
+  e.target[1].value = ""
+}
+
+// onscroll
+// onchange
