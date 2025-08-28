@@ -163,9 +163,50 @@ function formhandle(e) {
   console.log(userData);
 
   // clear inputs
-  e.target[0].value = ""
-  e.target[1].value = ""
+  e.target[0].value = "";
+  e.target[1].value = "";
 }
 
 // onscroll
+function paraScroll(){
+  console.log("Para scrolled");
+}
+
 // onchange
+function inputChange() {
+  console.log("Input changed");
+}
+
+
+// ! addEventListener Example
+const mainContainer = document.querySelector("#container")
+const btn2 = document.querySelector("#btn2")
+
+const btn1 = document.createElement("button")
+
+btn1.innerText = "click me"
+
+// SYNTAX ===>  element.addEventListener("event", callbackFn, useCapture)
+
+btn1.addEventListener("click" , () => {
+  console.log("Btn1 clicked");
+})
+btn2.addEventListener("dblclick",()=>{
+  console.log("Btn2 clicked");
+})
+mainContainer.append(btn1)
+
+
+// ! RAINBOW TASK 
+const divs = document.querySelectorAll("div")
+
+divs.forEach((ele)=>{
+  ele.addEventListener("mouseenter",()=>{
+    ele.style.backgroundColor = ele.innerText
+  })
+
+  ele.addEventListener("mouseleave",()=>{
+    ele.style.backgroundColor="white"
+  })
+})
+
