@@ -210,3 +210,41 @@ divs.forEach((ele)=>{
   })
 })
 
+
+// ! Event Propagation Example
+
+// element.addEventListener("event",callback,useCapture)
+// useCapture => 0 / 1
+// default value => 0
+
+const section = document.querySelector("section")
+const article = document.querySelector("article")
+const footer = document.querySelector("footer")
+
+section.addEventListener("click",(e)=>{
+  e.stopPropagation()
+  console.log("section");
+  section.style.backgroundColor = "red"
+},0)
+
+
+article.addEventListener("click",(e)=>{
+  e.stopPropagation()  
+  console.log("article");
+  article.style.backgroundColor = "yellow"
+},0)
+
+
+footer.addEventListener("click",(e)=>{
+  e.stopImmediatePropagation()
+  console.log("footer");
+  footer.style.backgroundColor = "orange"
+},0)
+
+footer.addEventListener("click",(e)=>{
+  console.log("Byee");
+},0)
+
+//! stopPropagation => prevent event from travelling in DOM tree (bubbling and capturing phase)
+
+//! stopImmediatePropagation => prevent event from travelling in DOM tree (bubbling and capturing phase) and also if multiple listeners are attached to the element with the same event type it prevents to call further listeners in which it is invoked.
